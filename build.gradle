@@ -60,6 +60,11 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-jetty"
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-starter-validation"
+//    implementation 'org.keycloak:keycloak-spring-security-adapter:25.0.3'
+    implementation 'org.keycloak:keycloak-spring-boot-starter:21.1.1'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.3.7'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' // OAuth2 Client
     compileOnly "io.micronaut:micronaut-inject-groovy"
     console "org.grails:grails-console"
     runtimeOnly "com.bertramlabs.plugins:asset-pipeline-grails:4.5.1"

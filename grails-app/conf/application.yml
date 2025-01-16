@@ -13,15 +13,15 @@ environments:
   development:
     dataSource:
       dbCreate: create-drop
-      url: jdbc:mysql://localhost:3306/devDb
+      url: jdbc:mysql://localhost:3306/ujicoba
   test:
     dataSource:
       dbCreate: update
-      url: jdbc:mysql://localhost:3306/testDb
+      url: jdbc:mysql://localhost:3306/ujicoba
   production:
     dataSource:
       dbCreate: none
-      url: jdbc:mysql://localhost:3306/prodDb
+      url: jdbc:mysql://localhost:3306/ujicoba
       properties:
         jmxEnabled: true
         initialSize: 5
@@ -54,10 +54,10 @@ grails:
       accept:
         header:
           userAgents:
-          - Gecko
-          - WebKit
-          - Presto
-          - Trident
+            - Gecko
+            - WebKit
+            - Presto
+            - Trident
     types:
       all: '*/*'
       atom: application/atom+xml
@@ -65,22 +65,22 @@ grails:
       csv: text/csv
       form: application/x-www-form-urlencoded
       html:
-      - text/html
-      - application/xhtml+xml
+        - text/html
+        - application/xhtml+xml
       js: text/javascript
       json:
-      - application/json
-      - text/json
+        - application/json
+        - text/json
       multipartForm: multipart/form-data
       pdf: application/pdf
       rss: application/rss+xml
       text: text/plain
       hal:
-      - application/hal+json
-      - application/hal+xml
+        - application/hal+json
+        - application/hal+xml
       xml:
-      - text/xml
-      - application/xml
+        - text/xml
+        - application/xml
   views:
     gsp:
       encoding: UTF-8
@@ -92,3 +92,28 @@ grails:
         staticparts: none
     default:
       codec: html
+server:
+  port: 8081
+keycloak:
+  realm: jiiahhhh
+  auth-server-url: http://localhost:8080/realms/jiiahhhh
+  resource: my-grails-app
+  credentials:
+    secret: lHiDnWCmcHUzqevvcDsF0gwzHizU3J20
+  use-resource-role-mappings: true
+  bearer-only: false
+  confidential-port: 0
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/jiiahhhh
+        registration:
+          keycloak:
+            client-id: my-grails-app
+            client-secret: lHiDnWCmcHUzqevvcDsF0gwzHizU3J20
+            redirect-uri: http://localhost:8081/public
+            scope:
+              - openid

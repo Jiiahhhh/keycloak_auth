@@ -11,6 +11,8 @@ class UrlMappings {
         "/"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')
-
+        "/demo"(controller: 'demo', action: 'index')
+        "/public"(controller: 'demo', action: 'publicEndpoint')
+        "/secured"(controller: 'demo', action: 'securedEndpoint')
     }
 }
